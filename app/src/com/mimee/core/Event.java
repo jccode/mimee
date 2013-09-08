@@ -14,6 +14,7 @@ public class Event {
 	private String description;
 	private int state;
 	private double distance;
+	private String photo;
 	public long getId() {
 		return id;
 	}
@@ -74,5 +75,18 @@ public class Event {
 	public void setDistance(double distance) {
 		this.distance = distance;
 	}
-	
+	public String getPhoto() {
+		return photo;
+	}
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+	@Override
+	public String toString() {
+		return "Event [id=" + id + ", creatorId=" + creatorId + ", createDate="
+				+ createDate + ", startTime=" + startTime + ", endDate="
+				+ endDate + ", address=" + address + ", title=" + title
+				+ ", description=" + description + ", state=" + state
+				+ ", distance=" + distance + ", photo=" + photo + "]";
+	}
 }

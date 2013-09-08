@@ -1,6 +1,7 @@
 package com.mimee.ui;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -16,6 +17,7 @@ import com.mimee.R;
 
 public class IndexFragment2 extends Fragment {
 	
+	private final static String KEY_SAVED_STATE = "tab";
 	private PagerSlidingTabStrip mTabs;
 	private ViewPager mPager;
 	private TabAdapter mAdapter;
@@ -39,9 +41,17 @@ public class IndexFragment2 extends Fragment {
 		mPager.setAdapter(mAdapter);
 		mTabs.setViewPager(mPager);
 		
+		if(savedInstanceState != null) 
+			mTabs.onRestoreInstanceState(savedInstanceState);
+		
 		return root;
 	}
 	
+	@Override
+	public void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		outState = (Bundle) mTabs.onSaveInstanceState();
+	}
 	
 	public static class TabAdapter extends FragmentPagerAdapter {
 		
