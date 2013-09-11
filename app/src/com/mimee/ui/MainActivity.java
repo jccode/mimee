@@ -114,6 +114,7 @@ public class MainActivity extends ActionBarActivity {
 		switch (position) {
 		case 0:
 			f = new IndexFragment2();
+//			f = new IndexFragment();
 			break;
 
 		default:
