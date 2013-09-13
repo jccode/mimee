@@ -24,12 +24,14 @@
                 android:id="@+id/event_topic"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                style="@style/EventTopic"/>
             
             <TextView 
                 android:id="@+id/event_distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/FontGray"
                 />
             
         </LinearLayout>
@@ -37,12 +39,14 @@
         <TextView 
             android:id="@+id/event_time"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            style="@style/FontGray"/>
         
         <TextView 
             android:id="@+id/address"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            style="@style/FontGray"/>
         
     </LinearLayout>
 </LinearLayout>

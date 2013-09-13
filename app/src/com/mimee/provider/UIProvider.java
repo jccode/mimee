@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 import com.mimee.core.Event;
@@ -43,7 +44,7 @@ public class UIProvider {
 	}
 	
 	private Event newActivity(String title, String address, String startTime, double distance, String imageUrl) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
 		Event activity = new Event();
 		activity.setTitle(title);
 		activity.setAddress(address);

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -24,7 +25,6 @@ public class IndexFragment2 extends Fragment {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 	}
 	
@@ -41,8 +41,10 @@ public class IndexFragment2 extends Fragment {
 		mPager.setAdapter(mAdapter);
 		mTabs.setViewPager(mPager);
 		
-		if(savedInstanceState != null) 
-			mTabs.onRestoreInstanceState(savedInstanceState);
+		if(savedInstanceState != null) {
+			//mTabs.onRestoreInstanceState(savedInstanceState);
+			Log.w("mimee", savedInstanceState.toString());
+		}
 		
 		return root;
 	}

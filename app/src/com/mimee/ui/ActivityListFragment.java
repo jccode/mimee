@@ -3,12 +3,15 @@ package com.mimee.ui;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
@@ -35,6 +38,7 @@ public class ActivityListFragment extends ListFragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
 		
 		mImageThumbSize = getResources().getDimensionPixelSize(R.dimen.event_img_width);
 		
@@ -81,6 +85,12 @@ public class ActivityListFragment extends ListFragment {
 			
 		});
 	}
+	
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.action_bar_index, menu);
+	}
 
 	private List<Event> getEvents() {
 		return uiService.findMyInvitedActivities();
@@ -117,7 +127,7 @@ public class ActivityListFragment extends ListFragment {
 		private Context mContext;
 		private List<Event> mEvents;
 		private LayoutInflater inflater = null;
-		private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		private DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
 
 		public ActivityRowAdapter(Context context, List<Event> events) {
 			mContext = context;

@@ -194,6 +194,7 @@ public class MainActivity extends ActionBarActivity {
 		public void init() {
 //			mActionBar.setDisplayHomeAsUpEnabled(true);
 //			mActionBar.setHomeButtonEnabled(true);
+			
 			mTitle = mDrawerTitle = getTitle();
 			
 			int flag = ActionBar.DISPLAY_SHOW_TITLE | ActionBar.DISPLAY_HOME_AS_UP;

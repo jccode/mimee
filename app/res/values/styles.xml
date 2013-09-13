@@ -32,5 +32,14 @@
     
     
     <!-- Events List View -->
+    <style name="EventTopic">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- <item name="android:textColor">#000</item> -->
+    </style>
+    
+    <style name="FontGray">
+        <item name="android:textColor">#555</item>
+    </style>
 
 </resources>
