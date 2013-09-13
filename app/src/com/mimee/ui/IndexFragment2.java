@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -16,7 +18,6 @@ import com.mimee.R;
 
 public class IndexFragment2 extends Fragment {
 	
-	private final static String KEY_SAVED_STATE = "tab";
 	private PagerSlidingTabStrip mTabs;
 	private ViewPager mPager;
 	private TabAdapter mAdapter;
@@ -49,7 +50,13 @@ public class IndexFragment2 extends Fragment {
 	@Override
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
-		outState = (Bundle) mTabs.onSaveInstanceState();
+		mTabs.onSaveInstanceState();
+	}
+	
+	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.action_bar_index, menu);
 	}
 	
 	public static class TabAdapter extends FragmentStatePagerAdapter {

@@ -4,22 +4,45 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import com.mimee.core.Event;
 
 public class UIProvider {
 
 	public List<Event> findMyInvitedActivities() {
+		return createRandomActivities(10);
+	}
+	
+	List<Event> createActivities(int size) {
 		List<Event> list = new ArrayList<Event>();
-		int i = 0;
-		list.add(createActivity("决战夏天-HGST足球比赛", "福田体育馆", "2013-08-21 17:00", 15.2, Images.imageThumbUrls[i++]));
-		list.add(createActivity("吉他兴趣交流", "莲花山公园", "2013-08-22  09:30", 20.3, Images.imageThumbUrls[i++]));
-		list.add(createActivity("非常勿扰-单身男女交流会", "喜来登酒店", "2013-08-25 19:00", 4.5, Images.imageThumbUrls[i++]));
-		list.add(createActivity("纠结轮哥迷见面会", "福田音乐厅", "2013-08-19 15:00", 13.2, Images.imageThumbUrls[i++]));
+		if(size <= 0) return list;
+		if(size > 10) size = 10;
+		for(int i = 0; i < size; i++) {
+			list.add(newActivity(SampleData.event[i], SampleData.address[i], 
+					SampleData.datetime[i], SampleData.distance[i], Images.imageThumbUrls[i]));
+		}
 		return list;
 	}
 	
-	private Event createActivity(String title, String address, String startTime, double distance, String imageUrl) {
+	List<Event> createRandomActivities(int size) {
+		List<Event> list = new ArrayList<Event>();
+		if(size <= 0) return list;
+		int len = SampleData.event.length;
+		Random rand = new Random();
+		for(int i = 0; i < size; i++) {
+			list.add(newActivity(
+					SampleData.event[rand.nextInt(len)], 
+					SampleData.address[rand.nextInt(len)], 
+					SampleData.datetime[rand.nextInt(len)], 
+					SampleData.distance[rand.nextInt(len)], 
+					Images.imageThumbUrls[rand.nextInt(len)]
+					));
+		}
+		return list;
+	}
+	
+	private Event newActivity(String title, String address, String startTime, double distance, String imageUrl) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Event activity = new Event();
 		activity.setTitle(title);

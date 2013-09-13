@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal" >
+    android:orientation="horizontal" 
+    android:padding="4dp">
 
     <com.mimee.util.RecyclingImageView
         android:id="@+id/recyclingImageView1"
         android:layout_width="@dimen/event_img_width"
         android:layout_height="@dimen/event_img_height"
-        android:src="@drawable/empty_photo" />
+        android:layout_marginRight="4dp"/> <!-- android:src="@drawable/empty_photo" -->
 	
     <LinearLayout 
         android:layout_width="match_parent"
